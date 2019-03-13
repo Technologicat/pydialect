@@ -3,6 +3,9 @@
 
 from __lang__ import pytkell
 
+from unpythonic.syntax import macros, continuations, call_cc, tco
+from unpythonic import timer
+
 from types import FunctionType
 from operator import add, mul
 
@@ -65,7 +68,7 @@ def main():
     assert f(1, 2) == (1, 2)
     assert (flip(f))(1, 2) == (2, 1)  # NOTE flip reverses all (doesn't just flip the first two)
 
-#    # TODO: this doesn't work, because curry sees f's arities as (2, 2)
+#    # TODO: this doesn't work, because curry sees f's arities as (2, 2) (kwarg handling!)
 #    assert (flip(f))(1, b=2) == (1, 2)  # b -> kwargs
 
     # http://www.cse.chalmers.se/~rjmh/Papers/whyfp.html
@@ -161,6 +164,37 @@ def main():
 
     harmonic = 1 / s(1, 2, ...)
     assert last(take(10, harmonic)) == 1/10
+
+    # unpythonic's continuations are supported
+    with continuations:
+        k = None  # kontinuation
+        def setk(*args, cc):
+            nonlocal k
+            k = cc  # current continuation, i.e. where to go after setk() finishes
+            return args  # tuple means multiple-return-values
+        def doit():
+            lst = ['the call returned']
+            *more, = call_cc[setk('A')]
+            return lst + list(more)
+        assert doit() == ['the call returned', 'A']
+        # We can now send stuff into k, as long as it conforms to the
+        # signature of the assignment targets of the "call_cc".
+        assert k('again') == ['the call returned', 'again']
+        assert k('thrice', '!') == ['the call returned', 'thrice', '!']
+
+    # as is unpythonic's tco
+    with tco:
+        def fact(n):
+            def f(k, acc):
+                if k == 1:
+                    return acc
+                return f(k - 1, k*acc)
+            return f(n, 1)  # TODO: doesn't work as f(n, acc=1) due to curry's kwarg handling
+        assert fact(4) == 24
+        print("Performance...")
+        with timer() as tictoc:
+            fact(5000)  # no crash, but Pytkell is a bit slow
+        print("    Time taken for factorial of 5000: {:g}s".format(tictoc.dt))
 
     print("All tests PASSED")
 
