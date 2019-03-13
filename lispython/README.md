@@ -18,6 +18,7 @@ We also import some macros and functions to serve as dialect builtins:
 
   - All ``let[]`` and ``do[]`` constructs from ``unpythonic.syntax``
   - Functions ``cons``, ``car``, ``cdr``, ``ll``, ``llist``, ``prod``
+  - ``dyn``, for dynamic assignment
 
 For detailed documentation of the language features, see
 [``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/macro_extras),

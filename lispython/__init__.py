@@ -19,7 +19,7 @@ def ast_transformer(module_body):
                                       cond
         # auxiliary syntax elements for the macros
         from unpythonic.syntax import local, where, block, expr, f, _
-        from unpythonic import cons, car, cdr, ll, llist, prod
+        from unpythonic import cons, car, cdr, ll, llist, prod, dyn
         with namedlambda:  # MacroPy #21 (nontrivial two-pass macro; seems I didn't get the fix right)
             with autoreturn, quicklambda, multilambda, tco:
                 name["__paste_here__"]
