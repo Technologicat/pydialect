@@ -154,7 +154,7 @@ def import_module_as_main(name, script_mode):
 
 def main():
     """Handle command-line arguments and run the specified main program."""
-    parser = argparse.ArgumentParser(description="""Run a Python program with Pydialects and MacroPy3 enabled (if installed).""",
+    parser = argparse.ArgumentParser(description="""Run a Python program with Pydialect and MacroPy3 enabled (if installed).""",
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
 
     parser.add_argument( '-v', '--version', action='version', version=('%(prog)s-bootstrapper ' + __version__) )
