@@ -8,6 +8,9 @@ from unpythonic.syntax import where, local, delete  # let-where; local/delete fo
 from unpythonic import foldr, cons, nil, ll
 
 def main():
+    # Function calls can be made in prefix notation, like in Lisps.
+    # The first element of a literal tuple is the function to call,
+    # the rest are its arguments.
     (print, "hello, my dialect is {}".format(__lang__))
 
     x = 42  # can write any regular Python, too
@@ -27,7 +30,7 @@ def main():
 
     # Be careful:
     try:
-        (x,)  # in a prefix block, this means "call the 0-arg function x"
+        (x,)  # in LisThEll, this means "call the 0-arg function x"
     except TypeError:
         pass  # 'int' object is not callable
     else:
@@ -61,7 +64,7 @@ def main():
     a, b = (q, b, a)  # pythonic swap in prefix syntax; must quote RHS
     assert a == 200 and b == 100
 
-    # prefix leaves alone the let binding syntax ((name0, value0), ...)
+    # the prefix syntax leaves alone the let binding syntax ((name0, value0), ...)
     a = let((x, 42))[x << x + 1]
     assert a == 43
 
@@ -71,7 +74,7 @@ def main():
     a = let((x, (double, 21)))[x << x + 1]
     assert a == 43
 
-    # similarly, prefix leaves the "body tuple" of a do alone
+    # similarly, the prefix syntax leaves the "body tuple" of a do alone
     # (syntax, not semantically a tuple), but recurses into it:
     a = do[1, 2, 3]
     assert a == 3
