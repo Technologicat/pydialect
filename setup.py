@@ -205,6 +205,7 @@ setup(
     #
     setup_requires = [],
     install_requires = [],
+    # Lispython is for production, the rest of the example dialects are just for testing.
     provides = ["pydialect", "dialects", "lispython"],
 
     # keywords for PyPI (in case you upload your project)
@@ -217,7 +218,7 @@ setup(
     #
     # This **does not** automatically recurse into subpackages, so they must also be declared.
     #
-    packages = ["dialects", "lispython", "pytkell"],
+    packages = ["dialects", "lispython", "pytkell", "listhell"],
 
     scripts = ["pydialect"],
 

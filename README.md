@@ -18,6 +18,7 @@ included in the Pydialect distribution:
 
   - [Lispython: the love child of Python and Scheme](lispython/)
   - [Pytkell: Python with automatic currying and lazy functions](pytkell/)
+  - [LisThEll: it's not Lisp, it's not Python, it's not Haskell](listhell/)
 
 
 ### Why dialects?
