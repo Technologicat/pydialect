@@ -15,7 +15,10 @@ want to look at [MacroPy](https://github.com/azazel75/macropy). Examples can be
 found in [unpythonic](https://github.com/Technologicat/unpythonic); see especially
 the macros (comprising about one half of ``unpythonic``). On packaging a set of
 semantics into a Pydialect definition, look at the example dialects included
-in the Pydialect distribution.
+in the Pydialect distribution:
+
+  - [Lispython: the love child of Python and Scheme](lispython/)
+  - [Pytkell: Python with automatic currying and lazy functions](pytkell/)
 
 
 ### Why?
