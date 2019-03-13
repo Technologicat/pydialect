@@ -34,7 +34,75 @@ SHORTDESC="Build languages on Python."
 
 # Long description for package homepage on PyPI
 #
-DESC="""
+DESC="""Pydialect makes Python into a language platform, à la Racket. It provides the
+plumbing that allows to create, in Python, dialects that compile into Python
+at import time.
+
+An extension to the Python language doesn't need to make it into the Python core,
+*or even be desirable for inclusion* into the Python core, in order to be useful.
+
+Building on functions and syntactic macros, customization of the language itself
+is one more tool for the programmer to extract patterns, at a higher level.
+Hence, beside language experimentation, such extensions can be used as a
+framework that allows shorter and/or more readable programs.
+
+Pydialect places language-creation power in the hands of its users, without the
+need to go to extreme lengths to hack CPython itself or implement from scratch
+a custom language that compiles to Python AST or bytecode.
+
+Pydialect is geared toward creating languages that extend Python and look
+almost like Python, but extend or modify its syntax and/or semantics.
+Hence *dialects*.
+
+That said, Pydialect itself is only a lightweight infrastructure hook that makes
+it convenient to define and use dialects. To implement the actual semantics
+for your dialect (which is where all the interesting things happen), you may
+want to look at [MacroPy](https://github.com/azazel75/macropy). Examples can be
+found in [unpythonic](https://github.com/Technologicat/unpythonic); see especially
+the macros (comprising about one half of ``unpythonic``). On packaging a set of
+semantics into a Pydialect definition, look at the example dialects included
+in the Pydialect distribution.
+
+Example of a module using a dialect::
+
+    from __lang__ import lispython
+
+    print("hello, my dialect is {}".format(__lang__))
+
+    c = cons(1, 2)
+    assert tuple(c) == (1, 2)
+    assert car(c) == 1
+    assert cdr(c) == 2
+    assert ll(1, 2, 3) == llist((1, 2, 3))
+
+    x = let[(a, 21) in 2*a]
+    assert x == 42
+
+    x = letseq[((a, 1),
+                (a, 2*a),
+                (a, 2*a)) in
+               a]
+    assert x == 4
+
+    a = lambda x: cond[x < 0, "nope",
+                       x % 2 == 0, "even",
+                       "odd"]
+    assert a(-1) == "nope"
+    assert a(2) == "even"
+    assert a(3) == "odd"
+
+    def fact(n):
+        def f(k, acc):
+            if k == 1:
+                return acc
+            f(k - 1, k*acc)  # implicit return in tail position, like in Lisps
+        f(n, acc=1)
+    assert fact(4) == 24
+    fact(5000)  # automatic TCO, no crash
+
+    square = lambda x: x**2
+    assert square(3) == 9
+    assert square.__name__ == "square"  # lambdas are auto-named
 """
 
 # Set up data files for packaging.
@@ -143,7 +211,7 @@ setup(
     #
     # e.g. the keywords your project uses as topics on GitHub, minus "python" (if there)
     #
-    keywords = ["XXX"],
+    keywords = ["metaprogramming", "programming-language-development", "dialects"],
 
     # Declare packages so that  python -m setup build  will copy .py files (especially __init__.py).
     #
