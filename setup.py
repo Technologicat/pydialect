@@ -151,7 +151,7 @@ datafiles.append( ('.', detected_docs) )
 # http://stackoverflow.com/questions/2058802/how-can-i-get-the-version-defined-in-setup-py-setuptools-in-my-package
 #
 import ast
-init_py_path = os.path.join(libname, '__init__.py')
+init_py_path = os.path.join('dialects', '__init__.py')
 version = '0.0.unknown'
 try:
     with open(init_py_path) as f:
