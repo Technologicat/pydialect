@@ -205,7 +205,7 @@ setup(
     #
     setup_requires = [],
     install_requires = [],
-    provides = ["pydialect"],
+    provides = ["pydialect", "dialects", "lispython"],
 
     # keywords for PyPI (in case you upload your project)
     #
@@ -217,7 +217,7 @@ setup(
     #
     # This **does not** automatically recurse into subpackages, so they must also be declared.
     #
-    packages = ["dialects", "lispython"],
+    packages = ["dialects", "lispython", "pytkell"],
 
     scripts = ["pydialect"],
 
