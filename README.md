@@ -16,9 +16,9 @@ the macros (comprising about one half of the library).
 On packaging a set of semantics into a dialect, look at the example dialects
 included in the Pydialect distribution:
 
-  - [Lispython: the love child of Python and Scheme](lispython/)
-  - [Pytkell: Python with automatic currying and lazy functions](pytkell/)
-  - [LisThEll: it's not Lisp, it's not Python, it's not Haskell](listhell/)
+  - [**Lispython**: the love child of Python and Scheme](lispython/)
+  - [**Pytkell**: Python with automatic currying and lazy functions](pytkell/)
+  - [**LisThEll**: it's not Lisp, it's not Python, it's not Haskell](listhell/)
 
 
 ### Why dialects?
