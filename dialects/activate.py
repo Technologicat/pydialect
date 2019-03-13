@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Install the import hook.
+"""Install the Pydialect import hook.
 
 Reloading this module refreshes the import hook to the start of ``sys.meta_path``.
 """
