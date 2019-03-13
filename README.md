@@ -1,27 +1,26 @@
 ## Pydialect: build languages on Python
 
-Pydialect makes Python into a language platform, à la Racket. It provides the
-plumbing that allows to create, in Python, dialects that compile into Python
-at import time.
-
-Pydialect is geared toward creating languages that extend Python and look
-almost like Python, but extend or modify its syntax and/or semantics.
+Pydialect makes Python into a language platform, à la [Racket](https://racket-lang.org/).
+It provides the plumbing that allows to create, in Python, dialects that compile into Python
+at import time. Pydialect is geared toward creating languages that extend Python
+and look almost like Python, but extend or modify its syntax and/or semantics.
 Hence *dialects*.
 
-That said, Pydialect itself is only a lightweight infrastructure hook that makes
+Pydialect itself is only a lightweight infrastructure hook that makes
 it convenient to define and use dialects. To implement the actual semantics
 for your dialect (which is where all the interesting things happen), you may
 want to look at [MacroPy](https://github.com/azazel75/macropy). Examples can be
 found in [unpythonic](https://github.com/Technologicat/unpythonic); see especially
-the macros (comprising about one half of ``unpythonic``). On packaging a set of
-semantics into a Pydialect definition, look at the example dialects included
-in the Pydialect distribution:
+the macros (comprising about one half of the library).
+
+On packaging a set of semantics into a dialect, look at the example dialects
+included in the Pydialect distribution:
 
   - [Lispython: the love child of Python and Scheme](lispython/)
   - [Pytkell: Python with automatic currying and lazy functions](pytkell/)
 
 
-### Why?
+### Why dialects?
 
 An extension to the Python language doesn't need to make it into the Python core,
 *or even be desirable for inclusion* into the Python core, in order to be useful.
@@ -41,10 +40,11 @@ orthogonally to the development of any dialect.
 
 At its simplest, a custom dialect can alleviate the need to spam a combination
 of block macros in every module of a project that uses a macro-based language
-extension. Being named as a dialect, that particular combination becomes
-instantly recognizable, and [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself):
-the dialect definition becomes the only place in the codebase that defines the
-macro combination to be used by each module in the project.
+extension, such as ``unpythonic.syntax``. Being named as a dialect, a particular
+combination of macros becomes instantly recognizable,
+and [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself):
+the dialect definition becomes the only place in the codebase that defines
+the macro combination to be used by each module in the project.
 
 The same argument applies to custom builtins: any functions or macros that
 feel like they "should be" part of the language layer, so that they won't
@@ -53,14 +53,15 @@ have to be explicitly imported in each module where they are used.
 
 ### Using dialects
 
-Place a **lang-import** at the start of your module that uses a dialect::
+Place a **lang-import** at the start of your module that uses a dialect:
 
     from __lang__ import piethon
 
 Run your program (in this example written in the ``piethon`` dialect)
 through the ``pydialect`` bootstrapper instead of ``python3`` directly,
 so that the main program gets imported instead of run directly, to trigger
-the import hook that performs the dialect processing.
+the import hook that performs the dialect processing. (Installing Pydialect
+will install the bootstrapper.)
 
 Any imported module that has a *lang-import* will be detected, and the appropriate
 dialect module (if and when found) will be invoked. The result is then sent to
@@ -230,7 +231,7 @@ in Python the source location info is compulsory for every AST node.
 Since you're reading this, you probably already know, but be aware that, unlike
 how it was envisioned during the *extensible languages* movement in the 1960s-70s,
 language extension is hardly an exercise requiring only *modest amounts of labor
-by unsophisticated users* [1](http://fexpr.blogspot.com/2013/12/abstractive-power.html).
+by unsophisticated users* [[1]](http://fexpr.blogspot.com/2013/12/abstractive-power.html).
 Especially the interaction between different macros needs a lot of thought,
 and as the number of language features grows, the complexity skyrockets.
 (For an example, look at what hoops other parts of ``unpythonic`` must jump
