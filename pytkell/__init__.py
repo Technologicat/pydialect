@@ -17,7 +17,7 @@ def ast_transformer(module_body):
                                       blet, bletseq, bletrec, \
                                       cond, forall
         # auxiliary syntax elements for the macros
-        from unpythonic.syntax import local, where, insist, deny
+        from unpythonic.syntax import local, delete, where, insist, deny
         # functions that have a haskelly feel to them
         from unpythonic import foldl, foldr, scanl, scanr, \
                                s, m, mg, frozendict, \
