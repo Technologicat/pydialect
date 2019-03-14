@@ -20,6 +20,8 @@ included in the Pydialect distribution:
   - [**Pytkell**: Python with automatic currying and lazy functions](pytkell/)
   - [**LisThEll**: it's not Lisp, it's not Python, it's not Haskell](listhell/)
 
+Lispython aims at production quality; the others are intended just as examples.
+
 
 ### Why dialects?
 
