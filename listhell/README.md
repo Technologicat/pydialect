@@ -3,6 +3,17 @@
 Powered by [Pydialect](https://github.com/Technologicat/pydialect) and
 [unpythonic](https://github.com/Technologicat/unpythonic).
 
+```python
+from __lang__ import listhell
+
+from unpythonic import foldr, cons, nil, ll
+
+(print, "hello from LisThEll")
+
+my_map = lambda f: (foldr, (compose, cons, f), nil)
+assert (my_map, double, (q, 1, 2, 3)) == (ll, 2, 4, 6)
+```
+
 ### Features
 
 In terms of ``unpythonic.syntax``, we implicitly enable ``prefix`` and ``curry``

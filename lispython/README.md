@@ -3,6 +3,38 @@
 Powered by [Pydialect](https://github.com/Technologicat/pydialect) and
 [unpythonic](https://github.com/Technologicat/unpythonic).
 
+```python
+from __lang__ import lispython
+
+def fact(n):
+    def f(k, acc):
+        if k == 1:
+            return acc
+        f(k - 1, k*acc)
+    f(n, acc=1)
+assert fact(4) == 24
+fact(5000)
+
+t = letrec[((evenp, lambda x: (x == 0) or oddp(x - 1)),
+            (oddp, lambda x: (x != 0) and evenp(x - 1))) in
+           evenp(10000)]
+assert t is True
+
+square = lambda x: x**2
+assert square(3) == 9
+assert square.__name__ == "square"
+
+g = lambda x: [local[y << 2*x],
+               y + 1]
+assert g(10) == 21
+
+c = cons(1, 2)
+assert tuple(c) == (1, 2)
+assert car(c) == 1
+assert cdr(c) == 2
+assert ll(1, 2, 3) == llist((1, 2, 3))
+```
+
 ### Features
 
 In terms of ``unpythonic.syntax``, we implicitly enable ``tco``, ``autoreturn``,
