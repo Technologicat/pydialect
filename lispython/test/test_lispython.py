@@ -127,5 +127,7 @@ def main():
         assert k('again') == ['the call returned', 'again']
         assert k('thrice', '!') == ['the call returned', 'thrice', '!']
 
+    print("All tests PASSED")
+
 if __name__ == '__main__':
     main()
