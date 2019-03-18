@@ -47,7 +47,7 @@ def splice_ast(body, template, tag):
 
         ...  # create template, place the marker in it
 
-        dialects.splice_ast(body, template, "__paste_here__")
+        dialects.util.splice_ast(body, template, "__paste_here__")
 
     """
     if not Walker:  # optional dependency for Pydialect, but mandatory for this util
