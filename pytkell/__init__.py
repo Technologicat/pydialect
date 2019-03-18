@@ -5,8 +5,7 @@ Powered by Pydialect and unpythonic."""
 
 from macropy.core.quotes import macros, q, name
 
-# The dialect finder imports us, so do not from-import to avoid dependency loop.
-import dialects.util
+from dialects.util import splice_ast
 
 def ast_transformer(module_body):
     with q as template:
@@ -31,4 +30,4 @@ def ast_transformer(module_body):
         from unpythonic import cons, car, cdr, ll, llist, nil
         with curry, lazify:
             name["__paste_here__"]
-    return dialects.util.splice_ast(module_body, template, "__paste_here__")
+    return splice_ast(module_body, template, "__paste_here__")
