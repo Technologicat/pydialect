@@ -1,26 +1,41 @@
 ## Pydialect: build languages on Python
 
+```python
+from __lang__ import lispython
+
+def fact(n):
+    def f(k, acc):
+        if k == 1:
+            return acc
+        f(k - 1, k*acc)
+    f(n, acc=1)
+assert fact(4) == 24
+print(fact(5000))
+```
+
 Pydialect makes Python into a language platform, à la [Racket](https://racket-lang.org/).
 It provides the plumbing that allows to create, in Python, dialects that compile into Python
 at import time. Pydialect is geared toward creating languages that extend Python
 and look almost like Python, but extend or modify its syntax and/or semantics.
 Hence *dialects*.
 
+As examples, we currently provide the following dialects:
+
+  - [**Lispython**: Python with tail-call optimization (TCO), implicit return, multi-expression lambdas](lispython/)
+  - [**Pytkell**: Python with automatic currying and lazy functions](pytkell/)
+  - [**LisThEll**: Python with prefix syntax and automatic currying](listhell/)
+
+All three dialects support [unpythonic's](https://github.com/Technologicat/unpythonic)
+``continuations`` block macro (to add ``call/cc`` to the language), but do not enable it automatically.
+Lispython aims at production quality; the others are intended just for testing.
+
 Pydialect itself is only a lightweight infrastructure hook that makes
 it convenient to define and use dialects. To implement the actual semantics
 for your dialect (which is where all the interesting things happen), you may
 want to look at [MacroPy](https://github.com/azazel75/macropy). Examples can be
 found in [unpythonic](https://github.com/Technologicat/unpythonic); see especially
-the macros (comprising about one half of the library).
-
-On packaging a set of semantics into a dialect, look at the example dialects
-included in the Pydialect distribution:
-
-  - [**Lispython**: the love child of Python and Scheme](lispython/)
-  - [**Pytkell**: Python with automatic currying and lazy functions](pytkell/)
-  - [**LisThEll**: it's not Lisp, it's not Python, it's not Haskell](listhell/)
-
-Lispython aims at production quality; the others are intended just as examples.
+the macros. On packaging a set of semantics into a dialect, look at the example
+dialects; all three are thin wrappers around ``unpythonic``.
 
 
 ### Why dialects?
