@@ -34,7 +34,7 @@ For detailed documentation of the language features, see
 ### What LisThEll is
 
 Essentially a demonstration of how Python could look, if it had Lisp's prefix syntax
-and Haskell's automatic currying.
+for function calls and Haskell's automatic currying.
 
 It's also a minimal example of how to make a dialect based on an ``ast_transformer``.
 
