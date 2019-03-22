@@ -1,4 +1,4 @@
-## Pytkell: Python with automatic currying and lazy functions
+## Pytkell: Because it's good to have a kell
 
 Powered by [Pydialect](https://github.com/Technologicat/pydialect) and
 [unpythonic](https://github.com/Technologicat/unpythonic).
