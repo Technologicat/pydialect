@@ -1,4 +1,4 @@
-## Pydialect: build languages on Python
+# Pydialect: build languages on Python
 
 ```python
 from __lang__ import lispython
