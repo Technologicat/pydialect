@@ -73,7 +73,9 @@ have to be explicitly imported in each module where they are used.
 
 Place a **lang-import** at the start of your module that uses a dialect:
 
-    from __lang__ import piethon
+```python
+from __lang__ import piethon
+```
 
 Run your program (in this example written in the ``piethon`` dialect)
 through the ``pydialect`` bootstrapper instead of ``python3`` directly,
