@@ -1,4 +1,4 @@
-## LisThEll: it's not Lisp, it's not Python, it's not Haskell.
+## LisThEll: it's not Lisp, it's not Python, it's not Haskell
 
 Powered by [Pydialect](https://github.com/Technologicat/pydialect) and
 [unpythonic](https://github.com/Technologicat/unpythonic).
