@@ -37,6 +37,12 @@ found in [unpythonic](https://github.com/Technologicat/unpythonic); see especial
 the macros. On packaging a set of semantics into a dialect, look at the example
 dialects; all three are thin wrappers around ``unpythonic``.
 
+Note what Pydialect does is similar to the rejected [PEP 511](https://www.python.org/dev/peps/pep-0511/),
+but via import hooks, as indeed suggested in the rejection notice. Thus, beside dialects proper,
+it is possible to use Pydialect to hook in a custom AST optimizer, by defining a dialect whose
+``ast_transformer`` is actually an optimizer. For ideas, see [here](http://compileroptimizations.com/).
+Some possibilities are e.g. constant folding, hoisting, if optimization and loop unrolling.
+
 
 ### Why dialects?
 
