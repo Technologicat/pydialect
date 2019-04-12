@@ -3,6 +3,8 @@
 
 Powered by Pydialect and unpythonic."""
 
+__version__ = '1.0.0'
+
 from macropy.core.quotes import macros, q, name
 
 from dialects.util import splice_ast
