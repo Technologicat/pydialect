@@ -28,7 +28,7 @@ The following are dialect builtins:
 
 For detailed documentation of the language features, see
 [unpythonic](https://github.com/Technologicat/unpythonic) and
-[``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/macro_extras).
+[``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/doc/macros.md).
 
 
 ### What LisThEll is

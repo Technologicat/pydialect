@@ -53,7 +53,7 @@ We also import some macros and functions to serve as dialect builtins:
   - ``dyn``, for dynamic assignment
 
 For detailed documentation of the language features, see
-[``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/macro_extras),
+[``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/doc/macros.md),
 especially the macros ``tco``, ``autoreturn``, ``multilambda``,
 ``namedlambda``, ``quicklambda``, ``let`` and ``do``.
 

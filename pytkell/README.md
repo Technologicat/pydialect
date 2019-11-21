@@ -65,7 +65,7 @@ We also import some macros and functions to serve as dialect builtins:
 
 For detailed documentation of the language features, see
 [unpythonic](https://github.com/Technologicat/unpythonic) and
-[``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/macro_extras).
+[``unpythonic.syntax``](https://github.com/Technologicat/unpythonic/tree/master/doc/macros.md).
 
 The builtin ``let[]`` constructs are ``let``, ``letseq``, ``letrec``, the
 decorator versions ``dlet``, ``dletseq``, ``dletrec``, the block
