@@ -1,5 +1,7 @@
 ## Lispython: the love child of Python and Scheme
 
+![mascot](lis.png)
+
 Powered by [Pydialect](https://github.com/Technologicat/pydialect) and
 [unpythonic](https://github.com/Technologicat/unpythonic).
 
@@ -253,3 +255,10 @@ feature is worth a performance hit.
 No instrumentation exists (or is even planned) for the Lispython layer; you'll
 have to use regular Python tooling to profile, debug, and such. The Lispython
 layer should be thin enough for this not to be a major problem in practice.
+
+
+### What's up with the mascot?
+
+Shading? It may be off by ~a bit~ a lot, I'm not a 2D artist.
+
+Semantics? *Lispython* is obviously made of two parts: Python, and...
